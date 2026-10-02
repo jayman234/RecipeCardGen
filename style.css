@@ -270,6 +270,58 @@ button:hover {
 }
 
 
+/* ----------------------------------------
+   FIND IMAGES
+---------------------------------------- */
+
+.find-images-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.find-images-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* ----------------------------------------
+   IMAGE RESULTS
+---------------------------------------- */
+
+.image-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.image-result {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    background-color: #eee;
+}
+
+.image-result img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-result:hover {
+    border-color: #999;
+}
+
+.image-result.selected {
+    border-color: #333;
+}
+
 /* -----------------------------------
    MOBILE
 ----------------------------------- */

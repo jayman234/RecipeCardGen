@@ -12,6 +12,8 @@ const previewQR = document.getElementById("preview-qr");
 const imageUrlInput = document.getElementById("image-url");
 const imageFileInput = document.getElementById("image-file");
 
+const findImagesButton = document.getElementById("find-images");
+const imageResults = document.getElementById("image-results");
 
 // Currently selected image
 let selectedImageURL = null;
@@ -129,6 +131,143 @@ imageFileInput.addEventListener("change", function () {
     // Show image in card preview
     previewImage.innerHTML =
         "<img src=\"" + imageURL + "\" alt=\"Recipe preview\">";
+
+});
+
+// -----------------------------------
+// FIND IMAGES FROM RECIPE
+// -----------------------------------
+
+findImagesButton.addEventListener("click", async function () {
+
+    const recipeURL = recipeUrlInput.value.trim();
+
+    // Check that a recipe URL has been entered
+    if (recipeURL === "") {
+
+        alert("Please enter a recipe URL first.");
+
+        return;
+    }
+
+    // Check that the URL is valid
+    try {
+
+        new URL(recipeURL);
+
+    }
+
+    catch {
+
+        alert("Please enter a valid recipe URL.");
+
+        return;
+    }
+
+    // Show loading message
+    imageResults.innerHTML =
+        "<p>Finding images...</p>";
+
+    try {
+
+        // Call Azure Function
+        const response = await fetch(
+            "/api/find-images?url=" +
+            encodeURIComponent(recipeURL)
+        );
+
+        // Check for server error
+        if (!response.ok) {
+
+            throw new Error("Image finder request failed.");
+
+        }
+
+        const data = await response.json();
+
+        // Clear results
+        imageResults.innerHTML = "";
+
+        // Check whether images were found
+        if (!data.images || data.images.length === 0) {
+
+            imageResults.innerHTML =
+                "<p>No images were found on this recipe page.</p>";
+
+            return;
+        }
+
+        // Create image result for each image
+        data.images.forEach(function (imageURL) {
+
+            const imageResult =
+                document.createElement("div");
+
+            imageResult.className = "image-result";
+
+            const image =
+                document.createElement("img");
+
+            image.src = imageURL;
+
+            image.alt = "Recipe image";
+
+            // -----------------------------------
+            // IMAGE SELECTED
+            // -----------------------------------
+
+            imageResult.addEventListener(
+                "click",
+                function () {
+
+                    // Remove selected state
+                    const allResults =
+                        document.querySelectorAll(".image-result");
+
+                    allResults.forEach(function (result) {
+
+                        result.classList.remove("selected");
+
+                    });
+
+                    // Select this image
+                    imageResult.classList.add("selected");
+
+                    // Save image URL
+                    selectedImageURL = imageURL;
+
+                    // Show selected image
+                    imageSelection.innerHTML =
+                        "<img src=\"" +
+                        imageURL +
+                        "\" alt=\"Selected recipe image\">";
+
+                    // Show image in card preview
+                    previewImage.innerHTML =
+                        "<img src=\"" +
+                        imageURL +
+                        "\" alt=\"Recipe preview\">";
+
+                }
+            );
+
+            // Add image to result
+            imageResult.appendChild(image);
+
+            imageResults.appendChild(imageResult);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        imageResults.innerHTML =
+            "<p>Unable to find images from this recipe.</p>";
+
+    }
 
 });
 

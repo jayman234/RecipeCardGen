@@ -40,47 +40,70 @@
 
 
         <!-- IMAGE SECTION -->
-		<section class="section">
+        <section class="section">
 
-			<h2>2. Choose an Image</h2>
+            <h2>2. Choose an Image</h2>
 
-			<!-- IMAGE UPLOAD -->
+            <!-- FIND IMAGES -->
 
-			<div class="image-input-container">
+            <div class="find-images-container">
 
-				<input
-					type="file"
-					id="image-file"
-					accept="image/*"
-				>
+                <button id="find-images" class="find-images-button">
+                    Find Images From Recipe
+                </button>
 
-			</div>
-			
-			<p class="or-text">OR</p>
-			<!-- IMAGE URL INPUT -->
+            </div>
 
-			<div class="image-input-container">
+            <!-- IMAGE RESULTS -->
 
-				<input
-					type="url"
-					id="image-url"
-					placeholder="Paste image URL here..."
-				>
+            <div id="image-results" class="image-results">
 
-			</div>
+            </div>
 
 
-			<!-- SELECTED IMAGE -->
+            <p class="or-text">OR</p>
 
-			<div id="image-selection" class="image-selection">
 
-				<p class="placeholder">
-					Your selected image will appear here.
-				</p>
+            <!-- IMAGE UPLOAD -->
 
-			</div>
+            <div class="image-input-container">
 
-		</section>
+                <input
+                    type="file"
+                    id="image-file"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <p class="or-text">OR</p>
+
+
+            <!-- IMAGE URL INPUT -->
+
+            <div class="image-input-container">
+
+                <input
+                    type="url"
+                    id="image-url"
+                    placeholder="Paste image URL here..."
+                >
+
+            </div>
+
+
+            <!-- SELECTED IMAGE -->
+
+            <div id="image-selection" class="image-selection">
+
+                <p class="placeholder">
+                    Your selected image will appear here.
+                </p>
+
+            </div>
+
+        </section>
 
 
         <!-- PREVIEW SECTION -->
