@@ -1,0 +1,341 @@
+/* -----------------------------------
+   GENERAL
+----------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+
+/* -----------------------------------
+   MAIN CONTAINER
+----------------------------------- */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 40px auto;
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* -----------------------------------
+   HEADINGS
+----------------------------------- */
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    font-size: 32px;
+}
+
+.subtitle {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: #666;
+}
+
+h2 {
+    font-size: 20px;
+
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* -----------------------------------
+   SECTIONS
+----------------------------------- */
+
+.section {
+    margin-bottom: 35px;
+}
+
+
+/* -----------------------------------
+   URL INPUT
+----------------------------------- */
+
+.url-row {
+    display: flex;
+    gap: 10px;
+}
+
+#recipe-url {
+    flex: 1;
+
+    padding: 12px 14px;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    outline: none;
+}
+
+#recipe-url:focus {
+    border-color: #555;
+}
+
+
+/* -----------------------------------
+   BUTTONS
+----------------------------------- */
+
+button {
+    padding: 12px 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    background-color: #333;
+    color: white;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+/* -----------------------------------
+   IMAGE SELECTION
+----------------------------------- */
+
+.image-selection {
+    min-height: 180px;
+
+    padding: 20px;
+
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    color: #888;
+}
+
+/* -----------------------------------
+   IMAGE OPTIONS
+----------------------------------- */
+
+.image-options {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.option-button {
+    background-color: #666;
+}
+
+.option-button:hover {
+    background-color: #444;
+}
+
+
+/* -----------------------------------
+   IMAGE INPUTS
+----------------------------------- */
+
+.image-input-container {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.image-input-container input[type="url"] {
+    flex: 1;
+
+    padding: 12px 14px;
+
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* -----------------------------------
+   SELECTED IMAGE
+----------------------------------- */
+
+.image-selection img {
+    max-width: 100%;
+    max-height: 400px;
+
+    object-fit: contain;
+}
+
+/* -----------------------------------
+   CARD PREVIEW
+----------------------------------- */
+
+.card-preview {
+    display: flex;
+
+    width: 100mm;
+    height: 50mm;
+
+    margin: 0 auto;
+
+    border: 1px solid #ccc;
+
+    overflow: hidden;
+}
+
+
+
+.preview-image,
+.preview-qr {
+    width: 50mm;
+    height: 50mm;
+
+    flex: 0 0 50mm;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eee;
+
+    color: #888;
+
+    overflow: hidden;
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.preview-qr canvas,
+.preview-qr img {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block;
+}
+
+/* -----------------------------------
+   DOWNLOAD
+----------------------------------- */
+
+.download-section {
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+.download-button {
+    padding: 14px 30px;
+
+    font-size: 17px;
+}
+
+
+/* -----------------------------------
+   MOBILE
+----------------------------------- */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 20px;
+    }
+
+
+    h1 {
+        font-size: 26px;
+    }
+
+
+    .url-row {
+        display: block;
+    }
+
+
+    #recipe-url {
+        width: 100%;
+    }
+
+
+    .image-input-container {
+        display: block;
+    }
+
+
+    .image-input-container input[type="url"] {
+        width: 100%;
+    }
+
+
+    .image-selection {
+        min-height: 150px;
+    }
+
+
+    .card-preview {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 2 / 1;
+    }
+
+
+    .preview-image,
+    .preview-qr {
+        width: 50%;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        flex: 0 0 50%;
+    }
+
+
+    .preview-qr canvas,
+    .preview-qr img {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+}

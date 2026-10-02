@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Card Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Recipe Card Generator</h1>
+
+        <p class="subtitle">
+            Turn a recipe URL into a printable recipe card.
+        </p>
+
+
+        <!-- URL SECTION -->
+        <section class="section">
+
+            <h2>1. Enter Recipe URL</h2>
+
+            <div class="url-row">
+
+                <input
+                    type="url"
+                    id="recipe-url"
+                    placeholder="https://example.com/recipe"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- IMAGE SECTION -->
+		<section class="section">
+
+			<h2>2. Choose an Image</h2>
+
+			<!-- IMAGE UPLOAD -->
+
+			<div class="image-input-container">
+
+				<input
+					type="file"
+					id="image-file"
+					accept="image/*"
+				>
+
+			</div>
+			
+			<p class="or-text">OR</p>
+			<!-- IMAGE URL INPUT -->
+
+			<div class="image-input-container">
+
+				<input
+					type="url"
+					id="image-url"
+					placeholder="Paste image URL here..."
+				>
+
+			</div>
+
+
+			<!-- SELECTED IMAGE -->
+
+			<div id="image-selection" class="image-selection">
+
+				<p class="placeholder">
+					Your selected image will appear here.
+				</p>
+
+			</div>
+
+		</section>
+
+
+        <!-- PREVIEW SECTION -->
+        <section class="section">
+
+            <h2>3. Preview</h2>
+
+            <div class="card-preview">
+
+                <div class="preview-image" id="preview-image">
+                    Image
+                </div>
+
+                <div class="preview-qr" id="preview-qr">
+                    QR Code
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOWNLOAD SECTION -->
+        <section class="download-section">
+
+            <button id="download-pdf" class="download-button">
+                Download PDF
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="script.js"></script>
+
+</body>
+
+</html>
